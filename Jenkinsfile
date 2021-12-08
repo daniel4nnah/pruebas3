@@ -4,7 +4,6 @@ pipeline {
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven 3.8.3"
-        jdk "JDK11"
     }
 
     stages {
@@ -28,12 +27,15 @@ pipeline {
                     archiveArtifacts 'target/*.jar'
                 }
             }
-                    stage("compile"){
+                   
+        }
+        
+         stage("compile"){
             steps {
                 echo 'Compiling...'
                 sh 'java -jar target/*.jar'
             }
         }
-        }
     }
+    
 }
